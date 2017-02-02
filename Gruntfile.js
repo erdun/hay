@@ -12,24 +12,6 @@ module.exports = function (grunt) {
                 dest: 'dest/<%= pkg.name %>.min.js'
             }
         },
-        concat: {
-            options: {
-                separator: ';',
-                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */',
-            },
-            dev: {
-                src: ['src/*.js'],
-                dest: 'dest/temp/bundle.js',
-            },
-            dist: {
-                src: ['src/core.js'],
-                dest: 'dest/temp/bundle.js',
-            },
-            dep: {
-                src: ['src/core.js'],
-                dest: 'dest/temp/xian.js',
-            },
-        },
         watch: {
             scripts: {
                 files: ['scripts/src/*.js'],
@@ -47,7 +29,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dest/temp/app.js': 'dest/temp/bundle.js'
+                    'scripts/src/*.js': 'scripts/build/*.js'
                 }
             }
         },
@@ -76,6 +58,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', ['express', 'watch']);
     grunt.registerTask('server', [ 'express:dev', 'watch' ]);
     grunt.registerTask('dep', ['concat:dep']);
+    grunt.registerTask('babel', ['babel']);
 };
 
 
