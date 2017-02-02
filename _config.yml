@@ -1,4 +1,24 @@
+# blog name
+blogName: 'totoro'
+
 menu:
-  Home: /
-  Archives: /archives
-  Github: https://github.com/ahonn
+    Blog: /
+    Archive: /archives/
+    # Weibo: http://weibo.com/sunchongsheng
+    # GitHub: https://github.com/pinggod
+    # Rss: /atom.xml
+
+favicon: /favicon.png
+logo: /icon.png
+
+# Comment
+# e.g disqus: seansun
+disqus:
+duoshuo:
+
+# Analytics
+# google-analytics:
+ga: UA-91055563-1
+
+# Copyright Infomation
+startyear: 2017

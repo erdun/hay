@@ -1,0 +1,9 @@
+#copoyright.copyright
+  - const hexoUrl = 'https://hexo.io/'
+  - const mowUrl = 'git@github.com:erdun/mow.git'
+  - const currentDate = new Date()
+  - let year = currentDate.getFullYear();
+  - year = year == theme.startyear ? year : theme.startyear + ' - ' + year;
+  p.
+    powered by #[a(href=hexoUrl, target="_blank") Hexo] and #[a(href=mowUrl, target="_blank") mow].
+  p ©#{year} #[a(href=config.url)!= config.author], 

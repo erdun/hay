@@ -1,10 +1,12 @@
-doctype html
-html(lang="en")
-  head
-    title= pageTitle
-    script(type='text/javascript').
-      if (foo) bar(1 + 5)
-  body
-    -var a = 23423
-    h1 Pug - node template engine
-    div(class='div box' click=`fdsa${a}`) sdfsd
+extends _partial/layout
+
+
+block container
+    include mixins/post
+    +posts()
+
+block copyright
+    include _partial/copyright
+
+block scripts
+  script(src="../scripts/b.js")
