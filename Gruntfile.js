@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
-    // 项目配置
+
+    // config
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
@@ -15,12 +16,15 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ['scripts/src/*.js'],
-                tasks: ['concat', 'babel', 'uglify'],
+                tasks: ['babel', 'uglify'],
             },
             css: {
-                files: ['source/style/*'],
-                tasks: []
+                files: ['source/stylus/*.styl'],
+                tasks: ['stylus']
             }
+        },
+        stylus: {
+            'source/css/index.css': 'source/stylus/*.styl'
         },
         babel: {
             options: {
@@ -29,36 +33,33 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'scripts/src/*.js': 'scripts/build/*.js'
+                    'scripts/build/b.js': 'scripts/src/b.js'
                 }
             }
         },
-        clean: ["dest/temp"],
-        express: {
-            options: {
-                port: 8080,
+        browserify: {
+            dist: {
+                files: {
+                    'scripts/build/module.js': ['scripts/src/b.js'],
+                },
+                options: {
+                     "transform": [["babelify", { "presets": ["es2015"] }]]
+                },
             },
-            dev: { 
-                options: { 
-                    script: 'path/server.js'
-                }
-            }
-        }
+        },
+        clean: ["source/css/*", "scripts/build/*"],
     });
-    // 加载提供"uglify"任务的插件
+
+    // load plugs
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-express-server');
-    // 默认任务
-    grunt.registerTask('default', ['concat:dist', 'babel', 'clean', 'uglify']);
-    grunt.registerTask('develop', ['concat:dev', 'watch:dev']);
-    grunt.registerTask('dev', ['express', 'watch']);
-    grunt.registerTask('server', [ 'express:dev', 'watch' ]);
-    grunt.registerTask('dep', ['concat:dep']);
-    grunt.registerTask('babel', ['babel']);
+    grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-browserify');
+
+    // mession
+    grunt.registerTask('default', ['babel', 'clean', 'uglify']);
+    grunt.registerTask('develop', ['watch:dev']);
 };
 
 
