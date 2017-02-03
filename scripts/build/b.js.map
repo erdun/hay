@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/b.js"],"names":["console","log"],"mappings":";;AAAA;;AAEA;;AAEAA,QAAQC,GAAR,CAAY,eAAZ","file":"b.js","sourcesContent":["import { a }  from './a'\n\n// console.log(a);\n\nconsole.log('test a import');\n"]}

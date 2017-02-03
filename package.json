@@ -20,7 +20,6 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.22.0",
     "grunt": "^1.0.1",
-    "grunt-babel": "^6.0.0",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-stylus": "^1.2.0",
