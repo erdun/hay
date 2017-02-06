@@ -1,0 +1,24 @@
+font-color = #555
+title-color = #333
+data-color = #556677
+
+
+clearfix()
+  zoom: 1
+  &:before
+  &:after
+    content: ''
+    clear: both
+    display block
+
+title()
+  font-size: 2.88em
+  font-family: fantasy, 'Trebuchet MS', Arial, 'Lucida Grande', Verdana, Lucida, Helvetica, sans-serif
+  line-height: 1.8
+  margin-bottom: 0
+  a
+    color: title-color
+
+date()
+  color: data-color
+  font-size: 2em

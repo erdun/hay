@@ -24,7 +24,7 @@ module.exports = function (grunt) {
       }
     },
     stylus: {
-      'source/css/index.css': 'source/stylus/*.styl'
+      'source/css/index.css': 'source/stylus/index.styl'
     },
     browserify: {
       dist: {

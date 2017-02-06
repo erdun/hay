@@ -1,0 +1,34 @@
+@import './common.styl';
+
+
+// common
+posR(floatDir)
+  position relative
+  display inline-block
+  if floatDir
+      float floatDir
+
+
+
+
+
+
+
+.topNav
+      clearfix()
+    .logo
+      posR(left)
+      .blogName
+        color: title-color
+        font-size: 5em
+        font-family: "Chancery", cursive, LiSu, sans-serif
+    .nav
+      line-height 5
+      posR(right)
+      .nav-list
+        .nav-list-item
+            posR(false)
+            font-size 2em
+            margin-left 2em
+            a
+              color: font-color

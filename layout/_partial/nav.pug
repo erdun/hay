@@ -1,14 +1,17 @@
-div#nav.nav
-  if theme.blogName
-    p.blogName= theme.blogName
-  else
-    a.logo-link(href=url_for())
-      img(src=url_for(theme.logo) alt="logo" href=config.src)
-  ul.nav-list
-    each value, key in theme.menu
-      li.nav-list-item
-        - var re = /^(http|https):\/\/*/gi;
-        - var tar = re.test(value) ? "_blank" : "_self"
-        - var act = !re.test(value) && "/"+page.current_url === value
-        a.nav-list-link(class={active: act} href=url_for(value) target=tar)
-          != key.toUpperCase()
+div.topNav
+  .logo
+    if theme.blogName
+      a.logo-link(href=url_for())
+        h2.blogName= theme.blogName
+    else
+      a.logo-link(href=url_for())
+        img(src=url_for(theme.logo) alt="logo" href=config.src)
+  nav.nav
+    ul.nav-list
+      each value, key in theme.menu
+        li.nav-list-item
+          - var re = /^(http|https):\/\/*/gi;
+          - var tar = re.test(value) ? "_blank" : "_self"
+          - var act = !re.test(value) && "/"+page.current_url === value
+          a.nav-list-link(class={active: act} href=url_for(value) target=tar)
+            != key.toUpperCase()
